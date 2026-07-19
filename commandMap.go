@@ -5,11 +5,6 @@ import (
 	"fmt"
 )
 
-type PokeLocation struct {
-	name string
-	url  string
-}
-
 func commandMapf(cfg *config) error {
 	locationsRes, err := cfg.pokeapiClient.ListLocations(cfg.nextLocationsURL)
 	if err != nil {

@@ -4,9 +4,8 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"strings"
-
 	"pokedex/internal/pokeapi"
+	"strings"
 )
 
 type config struct {
