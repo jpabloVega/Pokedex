@@ -26,7 +26,7 @@ func cleanInput(text string) []string {
 type cliCommand struct {
 	name        string
 	description string
-	callback    func(*config) error
+	callback    func(*config, string) error
 }
 
 func getAvailibleCommands() map[string]cliCommand {
@@ -40,6 +40,11 @@ func getAvailibleCommands() map[string]cliCommand {
 			name:        "map",
 			description: "Get the next page of locations",
 			callback:    commandMapf,
+		},
+		"explore": {
+			name:        "explore",
+			description: "See the pokemon of a selected area",
+			callback:    commandExplore,
 		},
 		"mapb": {
 			name:        "mapb",
@@ -68,11 +73,14 @@ func recieveCommand(cfg *config) {
 		}
 
 		commandInput := input[0]
+		if len(input) == 1 {
+			input = append(input, "")
+		}
 
 		availibleCommands := getAvailibleCommands()
 		command, ok := availibleCommands[commandInput]
 		if ok {
-			err := command.callback(cfg)
+			err := command.callback(cfg, input[1])
 			if err != nil {
 				fmt.Println(err)
 			}
