@@ -42,20 +42,30 @@ func getAvailibleCommands() map[string]cliCommand {
 			description: "Get the next page of locations",
 			callback:    commandMapf,
 		},
+		"mapb": {
+			name:        "mapb",
+			description: "Get the previous page of locations",
+			callback:    commandMapb,
+		},
 		"explore": {
 			name:        "explore",
 			description: "See the pokemon of a selected area",
 			callback:    commandExplore,
+		},
+		"pokedex": {
+			name:        "pokedex",
+			description: "See the pokemon you have caught",
+			callback:    commandPokedex,
 		},
 		"catch": {
 			name:        "catch",
 			description: "Try to catch a pokemon",
 			callback:    commandCatch,
 		},
-		"mapb": {
-			name:        "mapb",
-			description: "Get the previous page of locations",
-			callback:    commandMapb,
+		"inspect": {
+			name:        "inspect",
+			description: "Inspect catched pokemon stats",
+			callback:    commandInspect,
 		},
 		"exit": {
 			name:        "exit",

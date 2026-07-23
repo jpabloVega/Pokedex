@@ -22,7 +22,7 @@ func commandCatch(cfg *config, param1 string) error {
 	catchChance := rand.IntN(800-18) + 18
 
 	if pokemonRes.BaseExperience > catchChance {
-		fmt.Printf("%s escaped!", name)
+		fmt.Printf("%s escaped!\n", name)
 		return nil
 	}
 
